@@ -12,7 +12,7 @@ import java.sql.SQLException;
 
 import static org.junit.Assert.assertEquals;
 
-public class unitTest {
+public class UnitTest {
     Database database = new Database();
     Connection connection;
     String ID = "2";
