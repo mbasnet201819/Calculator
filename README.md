@@ -1,6 +1,6 @@
 ## Calculator
 
-The Calculator is a modern calculator app which can perform airthmetic opertaion including square root, percentage. It is developed by using Java programming language along with Javafx.
+The Calculator app provides simple and advanced mathematical functions in a beautifully designed app. It is developed by using Java programming language along with Javafx.
 
 ![](Calculator%20Img.PNG)
 ![](Dark%20Mode%20Calculator.PNG)
