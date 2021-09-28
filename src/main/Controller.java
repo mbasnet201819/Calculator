@@ -8,10 +8,16 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 
-public class Controller {
+public class Controller{
+
+    Database database = new Database();
+    String oldResult= null;
 
     private double result;
     private ArrayList<String> holder = new ArrayList<>();
@@ -58,7 +64,7 @@ public class Controller {
     }
 
 
-    public void getInput(ActionEvent evt) {
+    public void getInput(ActionEvent evt) throws SQLException {
 
 
         if (newCalculation) {
@@ -140,6 +146,7 @@ public class Controller {
                 calculate();
 
                 resultBox.setText(String.valueOf(result));
+                saveToDatabase(resultBox.getText());
                 newCalculation = true;
 
                 previousAnswer = result;
@@ -149,7 +156,22 @@ public class Controller {
 
     }
 
-
+    private void saveToDatabase(String history) throws SQLException {
+        if (oldResult != resultBox.getText()) {
+            oldResult = resultBox.getText();
+            if ((history != null) && (history != "0") && (history != "") && (history != " ")) {
+                Connection connection = database.getConnection();
+                PreparedStatement setHistory = connection.prepareStatement("insert into history (result) values(?)");
+                setHistory.setString(1, history);
+                setHistory.executeUpdate();
+                setHistory.close();
+                System.out.println("Data has been inserted");
+            } else System.out.println("Noting to save");
+        } else System.out.println("Cannot save same result");
+    }
+    public static String getResult(){
+        return "1";
+    }
     private void calculate() {
 
         try {
@@ -283,5 +305,12 @@ public class Controller {
 
         }
 
+    }
+
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
+        System.out.printf("Stop");
+        database.close();
     }
 }
