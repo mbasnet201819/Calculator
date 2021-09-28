@@ -1,0 +1,21 @@
+
+.mainButton {
+    -fx-background-color:  #FFFFFF;
+    -fx-background-radius: 15;
+}
+
+
+.Skyblue-round {
+    -fx-background-color:  #35c3f0;
+    -fx-background-radius: 100;
+}
+
+.skyblue {
+    -fx-background-color:  #35c3f0 ;
+    -fx-background-radius: 15;
+}
+
+.text {
+    -fx-background-color:  #FFFFFF;
+    -fx-background-radius: 15;
+}

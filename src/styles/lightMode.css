@@ -1,0 +1,11 @@
+.primary-color {
+    -fx-background-color: linear-gradient(to bottom right, #FF7F50, #6A5ACD);
+}
+
+.secondary-color {
+    -fx-background-color: #E7E7E7;
+}
+
+.border-round {
+    -fx-background-radius: 100;
+}
