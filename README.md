@@ -18,7 +18,8 @@ The Calculator is a modern calculator app which can perform airthmetic opertaion
 - Infinite precision for basic arithmetic operations (addition, subtraction, multiplication, division)
 - Light Mode and Dark Mode.
 - Calculation history and memory capabilities.
-- Simple Gui Interface
+- Store the data in database including date and time.
+- Simple Gui Interface.
 
 
 ## How To Use
